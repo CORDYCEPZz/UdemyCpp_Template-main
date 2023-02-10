@@ -6,7 +6,7 @@ int main() //test
     int sum = 0;
     int temp_val;
     std::cout<<"Try to reach a number higher than 10 by entering a number!"<<std::endl;
-    std::cout<<"Ich bin ein debug für git hub"<<std::endl;
+    std::cout<<"Ich bin ein debug für git"<<std::endl;
     do
     {
         std::cout<<"\nCurrent Sum: " << sum << " Enter the next value: ";
