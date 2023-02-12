@@ -1,0 +1,12 @@
+#include <iostream>
+
+int main()
+{
+    int a = 12;
+    auto b = static_cast<float>(a);
+
+    double c = 12.3;
+    auto d = static_cast<float>(c);
+
+    return 0;
+}
