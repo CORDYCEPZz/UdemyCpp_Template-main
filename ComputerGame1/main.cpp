@@ -21,7 +21,7 @@ int main()
 
     else
     {
-        std::cout << "The player couldnt move and you killed him. Well done !"
+        std::cout << "The player couldnt move and you killed him. Well done !";
     }
 
 
