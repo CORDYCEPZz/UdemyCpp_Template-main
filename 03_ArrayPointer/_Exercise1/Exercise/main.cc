@@ -13,7 +13,7 @@ int main()
 
     for (std::size_t i = 0; i < array_length; i++)
     {
-        array1[i] = i;
+        array1[i] = (double)i;
     }
 
     sum = array_sum(array1, array_length);

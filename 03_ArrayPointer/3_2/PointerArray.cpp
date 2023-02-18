@@ -20,6 +20,7 @@ int main()
     }
 
     // Heap de-allocation
+    delete[] arr;
 
     return 0;
 }

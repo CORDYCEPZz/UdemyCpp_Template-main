@@ -41,7 +41,6 @@ int main()
         std::cout << my_data[i] << std::endl;
     }
 
-    delete[] my_data;
     my_data = nullptr;
 
     return 0;
