@@ -2,50 +2,92 @@
 #include "Game.h"
 
 
-bool is_finished(const Player &player)
+bool is_finished(const Coordinate &player)
 {
-    return (player.x_pos == GOAL_x-1 && player.y_pos == GOAL_y-1);
+    return (player.x_pos == GOAL.x_pos-1 && player.y_pos == GOAL.y_pos-1);
 }
 
-void make_move(Player &player)
+void make_move(Coordinate &player)
 {
-    char move;
+    auto move = ConsoleInput::Invalid;
+    char move_temp;
     std::cout << "Make your move: ";
-    std::cin >> move;
-    if(move == 'd' && player.x_pos != GOAL_x-1)
+    std::cin >> move_temp;
+    move = static_cast<ConsoleInput>(move_temp);
+
+    switch(move)
     {
-        player.x_pos++ ;
-    }
-    else if(move == 'a' && player.x_pos != 0)
-    {
-        player.x_pos-- ;
-    }
-    else if(move == 'w' && player.y_pos != 0)
-    {
-        player.y_pos--;
-    }
-    else if(move == 's' && player.y_pos != GOAL_y-1)
-    {
-        player.y_pos++;
-    }
-    else
-    {
-        std::cout << "Invalid Input please try again by pressing either (a) or (d)";
-        make_move(player);
+        case ConsoleInput::RIGHT:
+        {
+            if(player.x_pos != GOAL.x_pos-1)
+            {
+                player.x_pos++ ;
+
+            }
+            else
+            {
+                std::cout << "Invalid Input please try again by pressing either (a) or (d)\n";
+            }
+            break;
+        }
+        case ConsoleInput::LEFT:
+        {
+            if(player.x_pos != 0)
+            {
+                player.x_pos-- ;
+            }
+            else
+            {
+                std::cout << "Invalid Input please try again by pressing either (a) or (d)\n";
+            }
+            break;
+        }
+        case ConsoleInput::UP:
+        {
+            if(player.y_pos != 0)
+            {
+                player.y_pos-- ;
+            }
+            else
+            {
+                std::cout << "Invalid Input please try again by pressing either (a) or (d)\n";
+            }
+            break;
+        }
+        case ConsoleInput::DOWN:
+        {
+            if(player.y_pos != GOAL.y_pos-1)
+            {
+                player.y_pos++ ;
+            }
+            else
+            {
+                std::cout << "Invalid Input please try again by pressing either (a) or (d)\n";
+            }
+            break;
+        }
+        default:
+        {
+            std::cout << "Invalid Input please try again by pressing either (a) or (d) \n";
+            make_move(player);
+            break;
+        }
     }
 }
 
-void show_position(const Player &player)
+
+void show_position(const Coordinate &player)
 {
-    for(unsigned int y = START_y; y < GOAL_y; y++)
+    //std::cout << player.x_pos << " " << player.y_pos << "\n";
+    for(unsigned int y = START.y_pos; y < GOAL.y_pos; y++)
     {
-        for(unsigned int x = START_x; x < GOAL_x; x++)
+        for(unsigned int x = START.x_pos; x < GOAL.x_pos; x++)
         {
             if(x == player.x_pos && y == player.y_pos)
             {
                 std::cout << "P";
             }
-            else if(x == GOAL_x-1 && y == GOAL_y-1)
+            else if(x == GOAL.x_pos-1 && y == GOAL.y_pos-1)
             {
                 std::cout << "O";
             }
@@ -60,8 +102,8 @@ void show_position(const Player &player)
 
 void game()
 {
-    auto player = Player{.x_pos = START_x, .y_pos = START_y};
-    std::cout << "Welcome to Jumani try to escape it by moving with  (wasd) ! \n";
+    auto player = START;
+     std::cout << "Welcome to Jumani try to escape it by moving with  (wasd) ! \n";
     do
     {
         make_move(player);
