@@ -38,3 +38,10 @@ void push_back(DynamicArray &dynmaic_array, const int &value);
  * @param size The size of the array.
  */
 void pop_back(DynamicArray &dynmaic_array);
+
+/**
+ * @brief Prints the dynamic Array.
+ *
+ * @param input_array The dynamic array.
+ */
+void print_array(const DynamicArray &dynamic_array);
