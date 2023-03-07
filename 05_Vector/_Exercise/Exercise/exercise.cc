@@ -4,35 +4,43 @@
 
 #include "exercise.h"
 
+bool sort_descedning(const double i, const double j)
+{
+    return i > j;
+}
+
+bool sort_ascedning(const double i, const double j)
+{
+    return i < j;
+}
+
 // Exercise 2
 VectorT max_row_values(MatrixT &matrix)
 {
-    auto row_max_vec = VectorT(matrix.size(), 0.0);
+    VectorT return_vector(matrix.size(), 0);
     if (!matrix.size() || !matrix[0].size())
-        return row_max_vec;
-
-    for (std::size_t i = 0; i != matrix.size(); ++i)
     {
-        auto act_row_max = matrix[i][0];
-
-        for (std::size_t j = 1; j != matrix[i].size(); ++j)
-        {
-            if (matrix[i][j] > act_row_max)
-            {
-                act_row_max = matrix[i][j];
-            }
-        }
-
-        row_max_vec[i] = act_row_max;
+        return return_vector;
     }
-
-    return row_max_vec;
+        // erst allel isten ordnen absteigend
+    //  copy in loop weil sonst würde matrix geändert werden
+    for(size_t i = 0; auto row: matrix)
+    {
+        std::sort(row.begin(), row.end(), sort_descedning);
+        return_vector[i] = row[0];
+        i++;
+    }
+    return return_vector;
 }
 
 // Exercise 3
 ValueT sort_and_max(VectorT &vec)
+//  sortiere vec aufsteigend und gebe maximum zurück
 {
-    std::sort(vec.begin(), vec.end());
-
+    if (!vec.size())
+    {
+        return 0;
+    }
+    std::sort(vec.begin(), vec.end(), sort_ascedning);
     return vec.back();
 }

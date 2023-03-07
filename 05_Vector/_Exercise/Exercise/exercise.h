@@ -11,3 +11,7 @@ VectorT max_row_values(MatrixT &matrix);
 
 // Exercise 3
 ValueT sort_and_max(VectorT &vec);
+
+//  Assisting functions
+bool sort_ascedning(const double i, const double j);
+bool sort_descedning(const double i, const double j);

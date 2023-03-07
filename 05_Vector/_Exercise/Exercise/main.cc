@@ -29,7 +29,14 @@ void printVector(const VectorT &vec)
 int main()
 {
     // Exercise 1
-
+    MatrixT matrix(3, VectorT(3, 0));
+    for(std::size_t i=0; i!= matrix.size(); i++)
+    {
+        for(std::size_t j=0; j!= matrix[i].size(); j++)
+        {
+            matrix[i][j] = static_cast<double>(i+j);
+        }
+    }
     std::cout << "Exercise 1:\n";
     printMatrix(matrix);
 
