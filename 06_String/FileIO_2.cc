@@ -65,7 +65,7 @@ int read_from_bin_file(const std::string &filepath, PlayerData &data)
 int main()
 {
     const auto text = std::string{"My sample text."};
-    const auto filename1 = std::string{"text.txt"};
+    const auto filename1 = std::string{"text_test.txt"};
     append_line_to_file(filename1, text);
 
     const auto player = PlayerData{.id = 0, .x_pos = 10.0F, .y_pos = 110.0F};

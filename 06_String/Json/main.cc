@@ -9,15 +9,20 @@ int main()
     auto data = nlohmann::json{};
     ifs >> data;
 
-    std::cout << data["configurations"][0]["name"] << '\n';
-    std::cout << data["configurations"][0]["compilerPath"] << '\n';
-    std::cout << data["configurations"][0]["cStandard"] << '\n';
-    std::cout << data["configurations"][0]["cppStandard"] << '\n';
+    std::cout << data["configurations"][0]["name"] << "\n";
+    std::cout << data["configurations"][0]["compilerPath"] << "\n";
+    std::cout << data["configurations"][0]["cStandard"] << "\n";
+    std::cout << data["configurations"][0]["cppStandard"] << "\n";
 
     data["configurations"][0]["cppStandard"] = "c++23";
+    std::cout << data["configurations"][0]["cppStandard"] << "\n";
 
     auto ofs = std::ofstream{"c_cpp_properties_edited.json"};
     ofs << std::setw(4) << data;
+    ofs.close();
+
+
+
 
     return 0;
 }
