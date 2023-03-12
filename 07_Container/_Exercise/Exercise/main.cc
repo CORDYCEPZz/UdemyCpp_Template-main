@@ -11,8 +11,10 @@ int main()
 {
     // Exercise 1
     auto friends = Friends{};
-
-    // ...
+    friends["Iza"] = std::pair{24, 47};
+    friends["Moritz"] = std::pair{23, 78};
+    friends["Ronja"] = std::pair{21, 55};
+    friends["Peter"] = std::pair{23, 74};
 
     // Exercise 2
     const auto oldest_friend = get_oldest_friend(friends);
