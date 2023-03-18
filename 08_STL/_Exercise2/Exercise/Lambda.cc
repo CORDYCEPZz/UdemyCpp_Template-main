@@ -22,10 +22,26 @@ int main()
     std::cout << std::endl;
 
     // Exercise 1
+    auto has_no_even = std::none_of(my_vector.begin(), my_vector.end(), [](int val){ return (val&2)==0; });
+    if(has_no_even)
+    {
+        std::cout << "None of the vector values are even" << std::endl;
+    }
+    else
+    {
+        std::cout << "The vector has even numbers" << std::endl;
+    }
 
 
     // Exercise 2
+    std::transform(my_vector.begin(), my_vector.end(), my_result.begin(), [](int val){return val*val;});
 
+    for (std::size_t i=0; auto &val : my_vector)
+    {
+        std::cout << val << " -> " << my_result[i] << std::endl;
+        i++;
+    }
+    std::cout << std::endl;
 
     return 0;
 }

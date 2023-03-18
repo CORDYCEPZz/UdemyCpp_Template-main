@@ -9,13 +9,19 @@
 #include <string_view>
 #include <utility>
 
-using Friends = std::map<std::string, std::pair<std::int32_t, std::int32_t>>;
+
 int main()
 {
-    Friends friends;
-    friends["Iza"] = std::pair{24, 47};
+    auto arr = std::vector<int>{1,2,3,4,5,6,7,8,9};
 
-    std::cout << friends["Iza"];
+    std::cout << arr[arr.size()-1];
+
+
+
+
+
+
+
 
 
     return 0;

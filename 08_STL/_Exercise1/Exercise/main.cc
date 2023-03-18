@@ -39,8 +39,7 @@ int main()
         std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() /
         1000.0;
     std::cout << std::endl << "Time for exercise 1 in ms: " << elapsed_milliseconds;
-    const auto is_equal2 =
-        std::equal(result_exercise1.begin(), result_exercise1.end(), target.begin());
+    const auto is_equal2 = std::equal(result_exercise1.begin(), result_exercise1.end(), target.begin());
     std::cout << std::endl << "Vectors are equal: " << is_equal2 << std::endl;
 
     // Exercise 2

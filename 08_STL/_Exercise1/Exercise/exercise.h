@@ -2,6 +2,7 @@
 
 #include <vector>
 
+
 using BinaryArray = std::vector<bool>;
 
 // Exercise 2
