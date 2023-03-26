@@ -99,21 +99,43 @@ Matrix<T> &Matrix<T>::operator-=(const Matrix<T> &rhs)
 template <typename T>
 Matrix<T> Matrix<T>::operator*(const T &scalar) const
 {
+    auto output = Matrix{};
+    output.set_A(this->get_A() * scalar);
+    output.set_B(this->get_B() * scalar);
+    output.set_C(this->get_C() * scalar);
+    output.set_D(this->get_D() * scalar);
+    return output;
 }
 
 template <typename T>
 Matrix<T> &Matrix<T>::operator*=(const T &scalar)
 {
+    this->set_A(this->get_A() * scalar);
+    this->set_B(this->get_B() * scalar);
+    this->set_C(this->get_C() * scalar);
+    this->set_D(this->get_D() * scalar);
+    return *this;
 }
 
 template <typename T>
 Matrix<T> Matrix<T>::operator/(const T &scalar) const
 {
+    auto output = Matrix{};
+    output.set_A(this->get_A() / scalar);
+    output.set_B(this->get_B() / scalar);
+    output.set_C(this->get_C() / scalar);
+    output.set_D(this->get_D() / scalar);
+    return output;
 }
 
 template <typename T>
 Matrix<T> &Matrix<T>::operator/=(const T &scalar)
 {
+    this->set_A(this->get_A() / scalar);
+    this->set_B(this->get_B() / scalar);
+    this->set_C(this->get_C() / scalar);
+    this->set_D(this->get_D() / scalar);
+    return *this;
 }
 
 template <typename T>

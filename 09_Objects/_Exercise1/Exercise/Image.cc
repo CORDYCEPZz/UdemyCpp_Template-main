@@ -108,17 +108,38 @@ void Image::set_pixel(const std::uint32_t x,
 // Exercise 1
 void Image::clear_image()
 {
+    m_matrix.clear();
+    m_width = 0;
+    m_height = 0;
 }
 
 // Exercise 2
 void Image::resize_image(const std::uint32_t new_width,
                          const std::uint32_t new_height)
 {
+    if(new_width !=  m_width)
+    {
+        m_matrix.resize(new_width);
+        m_width = new_width;
+    }
+
+    if(new_height !=  m_height)
+    {
+        for(auto &col: m_matrix)
+        {
+            col.resize(new_height);
+        }
+        m_height = new_height;
+    }
 }
 
 // Exercise 3
 void Image::fill_image(const std::uint8_t value)
 {
+    for(auto &col: m_matrix)
+    {
+        std::fill(col.begin(), col.end(), value);
+    }
 }
 
 // Exercise 4
@@ -128,4 +149,19 @@ void Image::draw_line(const std::uint32_t x1,
                       const std::uint32_t y2,
                       const std::uint8_t value)
 {
+    //  test if we draw a vertical line -> x1 = x2 weil hier x und y gekippt sind
+    if(x1 == x2)
+    {
+        for(std::uint32_t y = y1; y<y2; y++)
+        {
+            set_pixel(x1, y, value);
+        }
+    }
+    if(y1 == y2)
+    {
+     for(std::uint32_t x = x1; x<x2; x++)
+        {
+            set_pixel(x, y1, value);
+        }
+    }
 }

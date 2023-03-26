@@ -37,6 +37,7 @@ protected:
     std::uint32_t m_energy = 0U;
 };
 
+
 class Player : public Agent
 {
 public:
