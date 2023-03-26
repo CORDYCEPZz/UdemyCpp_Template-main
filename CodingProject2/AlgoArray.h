@@ -4,6 +4,7 @@
 
 #include "DynArray.h"
 
+//  statistical Methods that are not part of the class but defined for items of the class from Coding Project1
 template <typename T>
 T sum(DynamicArray<T> &dynamic_array)
 {
