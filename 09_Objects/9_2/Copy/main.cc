@@ -1,4 +1,4 @@
-#include <cstddef>
+ #include <cstddef>
 #include <iostream>
 
 #include "AlgoArray.h"
@@ -16,6 +16,7 @@ int main()
 
     a1 = a2; // Copy assignment operator
 
+    // um warning unused var zu vermeiden
     (void)a3; // Dummy
     (void)a4; // Dummy
     (void)a5; // Dummy

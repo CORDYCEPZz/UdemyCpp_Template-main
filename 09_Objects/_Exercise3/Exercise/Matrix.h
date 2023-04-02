@@ -13,6 +13,9 @@ public:
     // Exercise 2: Copy Assignment Operator
     Matrix &operator=(const Matrix &other);
 
+
+
+    //  Old Methods
     Matrix operator+(const Matrix &rhs) const;
     Matrix &operator+=(const Matrix &rhs);
     Matrix operator-(const Matrix &rhs) const;
@@ -55,7 +58,8 @@ Matrix<T>::Matrix(const T &A, const T &B, const T &C, const T &D)
 
 // Copy Constructor
 template <typename T>
-Matrix<T>::Matrix(const Matrix<T> &other)
+Matrix<T>::Matrix(const Matrix<T> &other):
+    m_A(other.m_A), m_B(other.m_B), m_C(other.m_C), m_D(other.m_D)
 {
 }
 
@@ -63,6 +67,11 @@ Matrix<T>::Matrix(const Matrix<T> &other)
 template <typename T>
 Matrix<T> &Matrix<T>::operator=(const Matrix<T> &other)
 {
+    this->m_A = other.m_A;
+    this->m_B = other.m_B;
+    this->m_C = other.m_C;
+    this->m_D = other.m_D;
+    return *this;
 }
 
 template <typename T>
