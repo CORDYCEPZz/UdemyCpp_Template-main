@@ -34,7 +34,7 @@ void f1()
     std::cout << "Count: " << t.use_count() << '\n';
 
     {
-        auto t2 = t;
+        auto t2 = t; // Copy Constructor aus der Rule of Five wird hier benutzt
         t2->test();
 
         std::cout << "Count: " << t.use_count() << '\n';
@@ -47,6 +47,7 @@ void f2()
 {
     auto *t3 = new ScopeTest(10);
     t3->test();
+    delete t3;
 }
 
 void f3()

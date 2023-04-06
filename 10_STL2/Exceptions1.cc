@@ -1,4 +1,5 @@
 #include <iostream>
+#include <exception>
 
 double div(double x, double y)
 {

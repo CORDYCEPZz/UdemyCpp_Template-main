@@ -14,6 +14,12 @@ bool is_string(const std::any &a)
     return a.type() == typeid(std::string);
 }
 
+template <typename T>
+bool is_type(const std::any &a)
+{
+    return a.type() == typeid(T);
+}
+
 int main()
 {
     auto value = std::any{42}; // integer 42
@@ -32,6 +38,11 @@ int main()
     {
         std::cout << e.what() << '\n';
     }
+
+    std::cout << "is_integer: " << std::boolalpha << is_type<int>(value) << '\n';
+    std::cout << "is_float:   " << std::boolalpha << is_type<float>(value) << '\n';
+    std::cout << "is_string: "  << std::boolalpha << is_type<std::string>(value) << '\n';
+
 
     std::cout << "is_integer: " << std::boolalpha << is_integer(value) << '\n';
     std::cout << "is_string: " << std::boolalpha << is_string(value) << '\n';

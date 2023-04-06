@@ -65,16 +65,17 @@ void f3()
     {
         auto t4_partner_shard = t4->m_partner.lock();
         std::cout << t4_partner_shard->m_val << std::endl;
-        std::cout << "Count t5: " << t5.use_count() << '\n';
+        std::cout << "Count t5: inscope " << t5.use_count() << '\n';
     }
+        std::cout << "Count t5: out of scope" << t5.use_count() << '\n';
 }
 
 int main()
 {
-    f1();
+/*     f1();
     std::cout << '\n';
     f2();
-    std::cout << '\n';
+    std::cout << '\n'; */
     f3();
 
     return 0;

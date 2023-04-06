@@ -4,7 +4,7 @@
 template <typename T, typename... Args>
 T concat(Args... args)
 {
-    return (... + args);
+    return (... + args); // args ist der erste Wert auf den alles addiert wird
 }
 
 int main()

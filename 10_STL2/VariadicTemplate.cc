@@ -24,7 +24,7 @@ int main()
     // first=s3, ...args=[]
     std::cout << concat(s1, s2, s3) << std::endl;
 
-    std::cout << concat(2, 3, 4) << std::endl;
+    std::cout << concat(2, 3, 4, 6) << std::endl;
 
     return 0;
 }

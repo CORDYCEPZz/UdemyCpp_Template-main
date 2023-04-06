@@ -27,6 +27,7 @@ void f1()
 {
     auto t = std::make_unique<ScopeTest>(10);
     t->test();
+    // gehen wir aus dem scope wird der destructor aufgerufen und dann das element gelöscht
 }
 
 void f2()
